@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="background" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -1
+
+[node name="bg_image" type="Sprite" parent="ParallaxBackground"]
