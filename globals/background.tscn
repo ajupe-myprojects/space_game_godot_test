@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://globals/pic/background.png" type="Texture" id=1]
 
 [node name="background" type="Node2D"]
 
@@ -6,3 +8,5 @@
 layer = -1
 
 [node name="bg_image" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 510.661, 201.298 )
+texture = ExtResource( 1 )

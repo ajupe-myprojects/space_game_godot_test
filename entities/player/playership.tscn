@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://entities/player/scripts/part_dust.gd" type="Script" id=1]
+[ext_resource path="res://entities/player/player_ship.gd" type="Script" id=2]
+[ext_resource path="res://entities/player/pic/ship_test1.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 64.1883, 34.5407 )
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.384106, 0.609272, 1 )
+colors = PoolColorArray( 0.945098, 0.945098, 0.945098, 0, 0.938477, 0.938477, 0.938477, 1, 0.93457, 0.93457, 0.93457, 1, 0.917647, 0.917647, 0.917647, 0 )
+
+[node name="playership" type="Node2D"]
+
+[node name="ship_move" type="KinematicBody2D" parent="."]
+collision_layer = 32
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="ship_move"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ship_move"]
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="ship_move"]
+current = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="ship_move"]
+scale = Vector2( 2, 2 )
+amount = 16
+lifetime = 3.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2( 0, 0 )
+color_ramp = SubResource( 1 )
+script = ExtResource( 1 )
