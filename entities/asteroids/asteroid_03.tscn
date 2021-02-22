@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://entities/asteroids/script/aste03_contents.gd" type="Script" id=1]
+[ext_resource path="res://entities/asteroids/pic/as_03.png" type="Texture" id=2]
+[ext_resource path="res://entities/asteroids/script/aste03_sprite_mouse.gd" type="Script" id=3]
+[ext_resource path="res://entities/asteroids/script/aste01_phys.gd" type="Script" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 56.7036
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 60.0672
+
+[node name="asteroid_03" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( -4.2045, 3.36357 )
+rotation = -0.380482
+scale = Vector2( 1, 0.986861 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+[connection signal="input_event" from="." to="." method="_on_asteroid_03_input_event"]
+[connection signal="mouse_entered" from="." to="StaticBody2D/Sprite" method="_on_asteroid_03_mouse_entered"]
+[connection signal="mouse_exited" from="." to="StaticBody2D/Sprite" method="_on_asteroid_03_mouse_exited"]
