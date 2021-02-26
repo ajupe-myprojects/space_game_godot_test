@@ -14,12 +14,12 @@ var rotation_dir = 0
 
 
 func get_input(speed, brake_front, brake_sides):
-	rotation_dir = 0
+	
 	#velocity = Vector2()
 	if Input.is_action_pressed("rotate_right"):
-		rotation_dir += 1
+		rotation_dir += 0.005
 	if Input.is_action_pressed("rotate_left"):
-		rotation_dir -= 1
+		rotation_dir -= 0.005
 	if Input.is_action_pressed("move_backward"):
 		velocity -= Vector2(brake_front , 0).rotated(rotation)
 	if Input.is_action_pressed("move_forward"):
@@ -28,7 +28,8 @@ func get_input(speed, brake_front, brake_sides):
 		velocity += Vector2(brake_sides , 0).rotated(rotation - 1.572)
 	if Input.is_action_pressed("move_right"):
 		velocity += Vector2(brake_sides , 0).rotated(rotation + 1.572)
-
+	if Input.is_action_pressed("stop_rot"):
+		rotation_dir = 0
 func _ready():
 	position = Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)
 
